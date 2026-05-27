@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Redflag Canvas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Legal tech · social data · student innovation</p>
+          <h1>Turn any privacy policy into a red-flag canvas.</h1>
+          <p class="subtitle">
+            Paste a privacy policy, app store notice, or platform terms page. Get a visual
+            risk map, plain-language checklist, and exportable evidence table in seconds.
+          </p>
+          <div class="hero-actions">
+            <button id="loadSample" class="primary">Load sample policy</button>
+            <button id="printReport" class="ghost">Print report</button>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="risk snapshot">
+          <div>
+            <span class="panel-label">Today’s canvas</span>
+            <strong id="heroScore">0</strong>
+            <span>risk score</span>
+          </div>
+          <div class="mini-bars">
+            <span style="height: 22%"></span>
+            <span style="height: 48%"></span>
+            <span style="height: 78%"></span>
+            <span style="height: 36%"></span>
+            <span style="height: 64%"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="input-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h2>Paste the policy text</h2>
+            </div>
+            <button id="analyze" class="primary small">Analyze</button>
+          </div>
+          <textarea id="policyText" spellcheck="false" placeholder="Paste privacy policy or app terms here..."></textarea>
+          <p class="note">
+            This tool is for education and research. It is not legal advice and does not
+            replace a qualified lawyer.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Step 2</p>
+              <h2>Red-flag results</h2>
+            </div>
+            <button id="exportJson" class="ghost small">Export JSON</button>
+          </div>
+          <div class="score-grid">
+            <div class="score-tile">
+              <span>Risk score</span>
+              <strong id="riskScore">0</strong>
+            </div>
+            <div class="score-tile">
+              <span>Flags found</span>
+              <strong id="flagCount">0</strong>
+            </div>
+            <div class="score-tile">
+              <span>Evidence lines</span>
+              <strong id="evidenceCount">0</strong>
+            </div>
+          </div>
+          <div id="chart" class="chart" aria-label="risk category chart"></div>
+          <div id="flags" class="flags"></div>
+        </div>
+      </section>
+
+      <section class="evidence-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Step 3</p>
+            <h2>Evidence table for research or complaints</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Why it matters</th>
+                <th>Matched phrase</th>
+                <th>Suggested question</th>
+              </tr>
+            </thead>
+            <tbody id="evidenceRows">
+              <tr>
+                <td colspan="4">Analyze a policy to create an evidence table.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
